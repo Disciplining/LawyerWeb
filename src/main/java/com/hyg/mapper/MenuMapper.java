@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Mapper
-@Repository("deleteMapper")
+@Repository("menuMapper")
 public interface MenuMapper {
 
     /**
      * 查询父级菜单
      */
-    @Select("select * from t_menu where ")
+    @Select("select * from t_menu where parentid=0")
     public List<Menu> findTopMenu();
 
 }
