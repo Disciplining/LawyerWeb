@@ -9,17 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("menuService")
-public class MenuService {
-
+public class MenuServiceImpl extends MenuService {
     @Autowired
-    @Qualifier("menuMapper")
+    @Qualifier("deleteMapper")
     private MenuMapper menuMapper;
 
-    public List<Menu> findTopMenu(){
+    @Override
+    public List<Menu> findTopMenu()
+    {
         return menuMapper.findTopMenu();
     }
-    public  List<Menu> findTopMenus(){
-        return menuMapper.findTopMenus();
-    }
 
+    public List<Menu> findTopMenus(){ return menuMapper.findTopMenus(); }
 }
