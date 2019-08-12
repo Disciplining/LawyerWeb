@@ -26,7 +26,7 @@ public class MenuController {
     }
     @ResponseBody
     @RequestMapping("/secondMenu")
-    public List<Menu> findMenus(){
+    public List<Menu> findMenus(int parentId ){
 
         return menuService.findTopMenus();
     }
