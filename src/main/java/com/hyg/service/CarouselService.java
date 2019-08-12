@@ -16,7 +16,7 @@ public class CarouselService {
     @Qualifier("carouselMapper")
     private CarouselMapper carouselMapper;
 
-    public List<Carousel> findTopCarousel(){
-        return  carouselMapper.findTopCarousel();
+    public List<Carousel> findCarousel(){
+        return  carouselMapper.findCarousel();
     }
 }

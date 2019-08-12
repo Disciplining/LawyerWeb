@@ -19,6 +19,6 @@ public interface MenuMapper {
     /**
      * 查询子菜单
      * */
-    @Select("select * from t_menu where parentid!=0")
-    public List<Menu> findTopMenus();
+    @Select("select * from t_menu where parentid =#{parentid}")
+    public List<Menu> findSecondMenus(Integer parentid);
 }

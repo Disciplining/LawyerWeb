@@ -23,6 +23,6 @@ public class AgencyController {
     @ResponseBody
     @RequestMapping("/agency")
     public List<Agency> findAgency(){
-        return agencyService.findTopAgency();
+        return agencyService.findAgency();
     }
 }

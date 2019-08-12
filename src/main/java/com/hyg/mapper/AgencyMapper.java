@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 事务所
+ */
 @Mapper
 @Repository("agencyMapper")
 public interface AgencyMapper {
@@ -15,6 +18,6 @@ public interface AgencyMapper {
      * 查询事务所介绍
      */
     @Select("select * from t_agency")
-    public List<Agency> findTopAgency();
+    public List<Agency> findAgency();
 }
 

@@ -15,11 +15,12 @@ public class MenuService {
     @Qualifier("menuMapper")
     private MenuMapper menuMapper;
 
-    public List<Menu> findTopMenu(){
+    public List<Menu> findTopMenu()
+    {
         return menuMapper.findTopMenu();
     }
-    public  List<Menu> findTopMenus(){
-        return menuMapper.findTopMenus();
+    public  List<Menu> findSecondMenus(Integer parentId){
+        return menuMapper.findSecondMenus(parentId);
     }
 
 }

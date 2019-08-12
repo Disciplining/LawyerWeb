@@ -23,6 +23,6 @@ public class CarouselController {
     @ResponseBody
     @RequestMapping("/carousel")
     public List<Carousel> findCarousel(){
-        return carouselService.findTopCarousel();
+        return carouselService.findCarousel();
     }
 }

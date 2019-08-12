@@ -8,13 +8,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 事务所
+ */
 @Service("agencyService")
 public class AgencyService {
     @Autowired
     @Qualifier("agencyMapper")
     private AgencyMapper agencyMapper;
 
-    public List<Agency> findTopAgency(){
-        return  agencyMapper.findTopAgency();
+    public List<Agency> findAgency()
+    {
+        return  agencyMapper.findAgency();
     }
 }

@@ -13,5 +13,5 @@ import java.util.List;
 public interface CarouselMapper {
 
     @Select("select * from t_carousel")
-    public List<Carousel> findTopCarousel();
+    public List<Carousel> findCarousel();
 }
