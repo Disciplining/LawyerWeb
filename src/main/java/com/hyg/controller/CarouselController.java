@@ -17,8 +17,7 @@ import java.util.List;
 @Controller
 public class CarouselController {
     @Autowired
-    @Qualifier("carouselController")
-
+    @Qualifier("carouselService")
     public CarouselService carouselService;
 
     @ResponseBody
