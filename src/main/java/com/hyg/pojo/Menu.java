@@ -2,6 +2,8 @@ package com.hyg.pojo;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 菜单表
  */
@@ -12,4 +14,5 @@ public class Menu
 	private String menuName;
 	private Integer parentId;
 	private String router;
+	private List<Menu> children;
 }
