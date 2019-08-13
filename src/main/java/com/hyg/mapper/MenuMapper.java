@@ -14,11 +14,11 @@ public interface MenuMapper {
     /**
      * 查询父级菜单
      */
-    @Select("select * from t_menu where parentid=0")
+    @Select("select * from t_menu where parentid=0 order by menuId")
     public List<Menu> findTopMenu();
     /**
      * 查询子菜单
      * */
-    @Select("select * from t_menu where parentid =#{parentid}")
+    @Select("select * from t_menu where parentid =#{parentid} order by menuId")
     public List<Menu> findSecondMenus(Integer parentid);
 }
