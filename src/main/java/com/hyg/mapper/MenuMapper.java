@@ -22,3 +22,7 @@ public interface MenuMapper {
     @Select("select * from t_menu where parentid =#{parentid} order by menuId")
     public List<Menu> findSecondMenus(Integer parentid);
 }
+
+
+
+
