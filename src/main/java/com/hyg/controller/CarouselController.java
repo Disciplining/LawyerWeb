@@ -23,6 +23,10 @@ public class CarouselController {
     @ResponseBody
     @RequestMapping("/carousel")
     public List<Carousel> findCarousel(){
-        return carouselService.findCarousel();
+    	List<Carousel> list = carouselService.findCarousel();
+    	/*for(Carousel ca:list){
+    		ca.setImgPath();
+		}*/
+        return list;
     }
 }
