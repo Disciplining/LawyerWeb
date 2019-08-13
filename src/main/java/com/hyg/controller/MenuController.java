@@ -22,13 +22,11 @@ public class MenuController {
     @ResponseBody
     @RequestMapping("/firstMenu")
     public List<Menu> findMenu(){
-        return menuService.findTopMenu();
-    }
-    @ResponseBody
-    @RequestMapping("/secondMenu")
-    public List<Menu> findMenus(Integer parentId ){
-
-        return menuService.findSecondMenus(parentId);
+        List<Menu> topList = menuService.findTopMenu();
+        for(Menu menu:topList){
+            menu.setChildren(menuService.findSecondMenus(menu.getMenuId()));
+        }
+        return topList;
     }
 
 }
