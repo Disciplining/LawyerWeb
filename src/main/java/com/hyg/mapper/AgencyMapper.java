@@ -13,11 +13,11 @@ import java.util.List;
  */
 @Mapper
 @Repository("agencyMapper")
-public interface AgencyMapper {
+public interface AgencyMapper
+{
     /**
      * 查询事务所介绍
      */
     @Select("select * from t_agency")
-    public List<Agency> findAgency();
+    List<Agency> findAgency();
 }
-

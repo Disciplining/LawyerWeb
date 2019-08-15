@@ -15,14 +15,16 @@ import java.util.List;
  * 事务所控制器
  */
 @Controller
-public class AgencyController {
+public class AgencyController
+{
     @Autowired
     @Qualifier("agencyService")
     public AgencyService agencyService;
 
     @ResponseBody
     @RequestMapping("/agency")
-    public List<Agency> findAgency(){
+    public List<Agency> findAgency()
+	{
         return agencyService.findAgency();
     }
 }
