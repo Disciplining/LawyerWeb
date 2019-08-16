@@ -22,8 +22,8 @@ public class ArticleController
 {
     @Qualifier("articleService")
     @Autowired
-
     private ArticleService articleService;
+
     @Value("${cbs.projectPath}")
     public String projectPath;
 
@@ -38,6 +38,12 @@ public class ArticleController
         return list;
     }
 
+	/**
+	 * 全部文章分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
     @GetMapping("/allArticlePageData")
 	@ResponseBody
     public Map<String, Object> allArticlePageData
@@ -47,5 +53,56 @@ public class ArticleController
 	)
 	{
 		return articleService.listAllArticlePageData(pageNum, pageSize);
+	}
+
+	/**
+	 * 公司法律文章分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	@GetMapping("/companyLawArticlePageData")
+	@ResponseBody
+	public Map<String, Object> companyLawArticlePageData
+	(
+		@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+		@RequestParam(value = "pageSize", defaultValue = "10") int pageSize
+	)
+	{
+		return articleService.listCompanyLawArticlePageData(pageNum, pageSize);
+	}
+
+	/**
+	 * 劳动法律文章分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	@GetMapping("/labourLawArticlePageData")
+	@ResponseBody
+	public Map<String, Object> labourLawArticlePageData
+	(
+		@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+		@RequestParam(value = "pageSize", defaultValue = "10") int pageSize
+	)
+	{
+		return articleService.listLabourLawArticlePageData(pageNum, pageSize);
+	}
+
+	/**
+	 * 刑事法律文章分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	@GetMapping("/criminalLawArticlePageData")
+	@ResponseBody
+	public Map<String, Object> criminalLawArticlePageData
+	(
+		@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+		@RequestParam(value = "pageSize", defaultValue = "10") int pageSize
+	)
+	{
+		return articleService.listCriminalLawArticlePageData(pageNum, pageSize);
 	}
 }

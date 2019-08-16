@@ -42,4 +42,67 @@ public class ArticleService {
 
 		return map;
 	}
+
+	/**
+	 * 公司法律文章的分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public Map<String, Object> listCompanyLawArticlePageData(int pageNum, int pageSize)
+	{
+		List<Article> list = articleMapper.findCompanyLawArticle(); // 分页之前查询为了长度
+
+		PageHelper.startPage(pageNum, pageSize);
+		List<Article> articles = articleMapper.findCompanyLawArticle();
+
+		Map<String ,Object> map = new HashMap<>();
+		map.put("code", 0);
+		map.put("count", list.size());
+		map.put("data", articles);
+
+		return map;
+	}
+
+	/**
+	 * 劳动法律文章的分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public Map<String, Object> listLabourLawArticlePageData(int pageNum, int pageSize)
+	{
+		List<Article> list = articleMapper.findLabourLawArticle(); // 分页之前查询为了长度
+
+		PageHelper.startPage(pageNum, pageSize);
+		List<Article> articles = articleMapper.findLabourLawArticle();
+
+		Map<String ,Object> map = new HashMap<>();
+		map.put("code", 0);
+		map.put("count", list.size());
+		map.put("data", articles);
+
+		return map;
+	}
+
+	/**
+	 * 刑事法律文章分页数据
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public Map<String, Object> listCriminalLawArticlePageData(int pageNum, int pageSize)
+	{
+		List<Article> list = articleMapper.findCriminalLawArticle(); // 分页之前查询为了长度
+
+		PageHelper.startPage(pageNum, pageSize);
+		List<Article> articles = articleMapper.findCriminalLawArticle();
+
+		Map<String ,Object> map = new HashMap<>();
+		map.put("code", 0);
+		map.put("count", list.size());
+		map.put("data", articles);
+
+		return map;
+	}
 }
