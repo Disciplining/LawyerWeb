@@ -1,7 +1,7 @@
 package com.hyg.controller;
 
-import com.hyg.pojo.Lawyer;
-import com.hyg.service.LawyerService;
+import com.hyg.pojo.Article;
+import com.hyg.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * 律师表控制器
+ * 文集控制器
  */
 @Controller
-public class LawyerController {
-    @Qualifier("lawyerService")
+public class ArticleController {
+    @Qualifier("articleService")
     @Autowired
-    private LawyerService lawyerService;
+    private ArticleService articleService;
     @Value("${cbs.projectPath}")
     public String projectPath;
     @ResponseBody
-    @RequestMapping("/lawyerList")
-    public List<Lawyer> findAllLawyer()
+    @RequestMapping("/articleList")
+    public List<Article> findAllArticle()
     {
-        List<Lawyer> list=lawyerService.findAllLawyer();
-        for (Lawyer la:list){
-            la.setLawyerImg(projectPath.concat(la.getLawyerImg()));
+        List<Article> list=articleService.findAllArticle();
+        for (Article ar:list){
+            ar.setArticleImg(projectPath.concat(ar.getArticleImg()));
         }
         return list;
     }

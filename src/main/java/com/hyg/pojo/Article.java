@@ -19,6 +19,8 @@ public class Article
 	private Date editDate;
 	private Integer count;
 	private String deleteFlag;
+	private String articleImg;
+
 
 	public static class ArticleType
 	{
