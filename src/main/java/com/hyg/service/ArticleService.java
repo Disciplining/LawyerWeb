@@ -7,6 +7,7 @@ import com.hyg.pojo.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -104,5 +105,15 @@ public class ArticleService {
 		map.put("data", articles);
 
 		return map;
+	}
+
+	/**
+	 * 根据id获得一篇文章
+	 * @param id
+	 * @return
+	 */
+	public Article getOneArticleById(int id)
+	{
+		return articleMapper.getOneArticleById(id);
 	}
 }

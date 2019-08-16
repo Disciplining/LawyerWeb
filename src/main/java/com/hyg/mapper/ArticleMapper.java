@@ -36,4 +36,12 @@ public interface ArticleMapper {
 	 */
 	@Select(" select * from t_article WHERE deleteFlag='0' and type=3 ")
 	List<Article> findCriminalLawArticle();
+
+	/**
+	 * 根据id获得一篇文章
+	 * @param articleId
+	 * @return
+	 */
+	@Select(" select * from `t_article` where `deleteFlag`!='1' and `articleId`=#{articleId} ")
+	Article getOneArticleById(int articleId);
 }

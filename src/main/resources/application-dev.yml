@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://www.liyanxing.top:3306/lawyer
+    url: jdbc:mysql://www.liyanxing.top:3306/lawyer?serverTimezone=Asia/Shanghai
     username: root
     password: root123
     type: com.alibaba.druid.pool.DruidDataSource
@@ -18,3 +18,7 @@ cbs:
     #imagesPath: file:/media/root/my-disk/download/pic-dir/ # 图片存储总目录
     imagesPath: file:D:/121res/ # 图片存储总目录
     projectPath: http://localhost:8081
+
+mybatis:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印sql语句

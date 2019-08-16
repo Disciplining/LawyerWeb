@@ -105,4 +105,13 @@ public class ArticleController
 	{
 		return articleService.listCriminalLawArticlePageData(pageNum, pageSize);
 	}
+
+	@GetMapping("/getOneArticleById")
+	@ResponseBody
+	public Article getOneArticleById(@RequestParam("id") int id)
+	{
+		System.out.println("数据：" + id);
+
+		return articleService.getOneArticleById(id);
+	}
 }
