@@ -30,12 +30,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--thymeleaf-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-
 		<!-- springboot整合mybatis -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -64,26 +58,13 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!--shiro-->
+		<!-- mybatis分页插件 -->
 		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
-			<version>1.4.1</version>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.12</version>
 		</dependency>
 
-		<!-- fsst json-->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.59</version>
-		</dependency>
-
-		<!-- shiro -->
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
-			<version>1.4.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
