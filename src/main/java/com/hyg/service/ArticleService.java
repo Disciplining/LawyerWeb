@@ -108,12 +108,17 @@ public class ArticleService {
 	}
 
 	/**
-	 * 根据id获得一篇文章
+	 * 所有文章类型下的详情接口
 	 * @param id
 	 * @return
 	 */
-	public Article getOneArticleById(int id)
+	public Map<String, Object> allTypeDetail(int id)
 	{
-		return articleMapper.getOneArticleById(id);
+		Map<String, Object> map = new HashMap<>(2);
+
+		map.put("idArr", articleMapper.listAllArticleId());
+		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		return map;
 	}
 }

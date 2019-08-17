@@ -44,4 +44,11 @@ public interface ArticleMapper {
 	 */
 	@Select(" select * from `t_article` where `deleteFlag`!='1' and `articleId`=#{articleId} ")
 	Article getOneArticleById(int articleId);
+
+	/**
+	 * 获得所有类型文章的id
+	 * @return
+	 */
+	@Select(" select `articleId` from `t_article` where `deleteFlag`!='1' ")
+	List<Integer> listAllArticleId();
 }
