@@ -106,6 +106,11 @@ public class ArticleController
 		return articleService.listCriminalLawArticlePageData(pageNum, pageSize);
 	}
 
+	/**
+	 * 所有类型下的详情按钮
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/allTypeDetail")
 	@ResponseBody
 	public Map<String, Object> allTypeDetail(@RequestParam("id") int id)
