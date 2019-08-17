@@ -117,4 +117,42 @@ public class ArticleController
 	{
 		return articleService.allTypeDetail(id);
 	}
+
+	/*--------------------------------------------*/
+
+	/**
+	 * 公司法律类型下的详情按钮
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/companyTypeDetail")
+	@ResponseBody
+	public Map<String, Object> companyTypeDetail(@RequestParam("id") int id)
+	{
+		return articleService.companyTypeDetail(id);
+	}
+
+	/**
+	 * 劳动法律
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/labourTypeDetail")
+	@ResponseBody
+	public Map<String, Object> labourTypeDetail(@RequestParam("id") int id)
+	{
+		return articleService.labourTypeDetail(id);
+	}
+
+	/**
+	 * 劳动法律
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/criminalTypeDetail")
+	@ResponseBody
+	public Map<String, Object> criminalTypeDetail(@RequestParam("id") int id)
+	{
+		return articleService.criminalTypeDetail(id);
+	}
 }

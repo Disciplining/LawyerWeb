@@ -27,7 +27,7 @@ public interface ArticleMapper {
 	 * 查询劳动法律的所有文章
 	 * @return
 	 */
-	@Select(" select * from t_article WHERE deleteFlag='0' and type=2 ")
+	@Select(" select * from t_article WHERE deleteFlag='0' and `type`=2 ")
 	List<Article> findLabourLawArticle();
 
 	/**
@@ -51,4 +51,27 @@ public interface ArticleMapper {
 	 */
 	@Select(" select `articleId` from `t_article` where `deleteFlag`!='1' ")
 	List<Integer> listAllArticleId();
+
+	/*------------------------------------------------------------------------------------*/
+
+	/**
+	 * 获得公司法律文章的id
+	 * @return
+	 */
+	@Select(" select `articleId` from `t_article` where `deleteFlag`!='1' and `type`=1 ")
+	List<Integer> listCompanyArticleId();
+
+	/**
+	 * 劳动法律 id
+	 * @return
+	 */
+	@Select(" select `articleId` from `t_article` where `deleteFlag`!='1' and `type`=2 ")
+	List<Integer> listLabourArticleId();
+
+	/**
+	 * 刑事法律 id
+	 * @return
+	 */
+	@Select(" select `articleId` from `t_article` where `deleteFlag`!='1' and `type`=3 ")
+	List<Integer> listLCriminalArticleId();
 }

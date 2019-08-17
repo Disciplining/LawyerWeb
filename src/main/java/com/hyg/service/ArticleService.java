@@ -121,4 +121,51 @@ public class ArticleService {
 
 		return map;
 	}
+
+	/*-----------------------------------------------------------------------------------*/
+
+	/**
+	 * 公司法律文章类型下的详情接口
+	 * @param id
+	 * @return
+	 */
+	public Map<String, Object> companyTypeDetail(int id)
+	{
+		Map<String, Object> map = new HashMap<>(2);
+
+		map.put("idArr", articleMapper.listCompanyArticleId());
+		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		return map;
+	}
+
+	/**
+	 * 劳动法律
+	 * @param id
+	 * @return
+	 */
+	public Map<String, Object> labourTypeDetail(int id)
+	{
+		Map<String, Object> map = new HashMap<>(2);
+
+		map.put("idArr", articleMapper.listLabourArticleId());
+		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		return map;
+	}
+
+	/**
+	 * 刑事法律
+	 * @param id
+	 * @return
+	 */
+	public Map<String, Object> criminalTypeDetail(int id)
+	{
+		Map<String, Object> map = new HashMap<>(2);
+
+		map.put("idArr", articleMapper.listLCriminalArticleId());
+		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		return map;
+	}
 }
