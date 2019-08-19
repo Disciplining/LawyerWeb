@@ -5,6 +5,7 @@ import com.hyg.pojo.DefenseAdvantage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,4 +24,14 @@ public class DefenseAdvantageService
     {
         return mapper.listAllData();
     }
+
+	/**
+	 * 根据id获取一条数据
+	 * @param id
+	 * @return
+	 */
+	public DefenseAdvantage getOneDefenseAdvantageById(@RequestParam("id") int id)
+	{
+		return mapper.getOneDefenseAdvantageById(id);
+	}
 }

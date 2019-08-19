@@ -17,4 +17,12 @@ public interface DefenseAdvantageMapper
      */
     @Select(" select * from `t_defenseAdvantage` where `deleteFlag`!='1' ")
     List<DefenseAdvantage> listAllData();
+
+	/**
+	 * 根据id获得一条数据
+	 * @param id
+	 * @return
+	 */
+	@Select(" select * from `t_defenseAdvantage` where `deleteFlag`!='1' and `id`=#{id} ")
+	DefenseAdvantage getOneDefenseAdvantageById(int id);
 }
