@@ -59,6 +59,8 @@ public class CommonService
 				List<Case> cases = caseMapper.getAllCaseByChargeName(charName); // 这个罪名下的所有案例
 				temp.setCases(cases);
 
+				System.out.println("debug：" + cases);
+
 				chargeNamesAndCases.add(temp);
 			}
 			bean.setChargeNamesAndCases(chargeNamesAndCases);
