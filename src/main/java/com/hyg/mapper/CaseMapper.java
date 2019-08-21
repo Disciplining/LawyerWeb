@@ -13,6 +13,7 @@ import java.util.Map;
 @Repository("caseMapper")
 public interface CaseMapper
 {
+	/*查*/
 	/**
 	 * 获得某个罪名名称下的所有案例
 	 * @param chargeName
@@ -31,4 +32,13 @@ public interface CaseMapper
 	@Select(" select `t_chargeType`.`chargeTypeName`, `t_charge`.`chargeName` " +
 				" from `t_chargeType` cross join `t_charge` on  `t_charge`.`id`=#{id} and `t_chargeType`.`id` = `t_charge`.`chargeTypeId` ")
 	Map<String, String> getChargenameAndChargetypenameByCaseid(int id);
+
+	/**
+	 * 根据 案例的id 获得一个 案例实体
+	 * @param id
+	 * @return
+	 */
+	@Select(" select * from `t_case` where `id`=#{id} ")
+	Case getOneCaseById(int id);
+	/*------------------------------------------------------------------------------------------------------------------------*/
 }
