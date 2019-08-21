@@ -11,6 +11,7 @@ import java.util.List;
 @Repository("chargeTypeMapper")
 public interface ChargeTypeMapper
 {
+	/*查*/
 	/**
 	 * 获得所有罪名分类的名称
 	 * @return
@@ -25,4 +26,13 @@ public interface ChargeTypeMapper
 	 */
 	@Select(" select * from `t_chargeType` where `deleteFlag`!='1' and `chargeTypeName`=#{name} ")
 	ChargeType getOneChargeTypeByName(String name);
+
+	/**
+	 * 根据id获得一个罪名分类的名称
+	 * @param id
+	 * @return
+	 */
+	@Select(" select `chargeTypeName` from `t_chargeType` where `id`=#{id} ")
+	String getOneChargetypenameById(int id);
+	/*---------------------------------------------------------------------------------------------*/
 }
