@@ -6,6 +6,7 @@ import com.hyg.mapper.ChargeMapper;
 import com.hyg.mapper.ChargeTypeMapper;
 import com.hyg.pojo.Case;
 import com.hyg.pojo.ChargeType;
+import com.hyg.util.ChangeNameAndCases;
 import com.hyg.util.LinkageCaseDataBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,25 +38,31 @@ public class CommonService
 	{
 		List<LinkageCaseDataBean> data = new ArrayList<>();
 
-		List<String> charTypeNames = chargeTypeMapper.listChargeTypeName();
-
-		for (String charTypeName : charTypeNames)
+		List<String> allChargeTypeName = chargeTypeMapper.listChargeTypeName(); // 获得所有的罪名分类的名称
+		for (String foo : allChargeTypeName) // 遍历每个罪名分类的名称
 		{
-			LinkageCaseDataBean bean = new LinkageCaseDataBean();
-			bean.setCharTypeName(charTypeName); // 设置罪名分类 名称
+			LinkageCaseDataBean bean = new LinkageCaseDataBean(); // 要存入最终集合的对象
 
-			ChargeType chargeType = chargeTypeMapper.getOneChargeTypeByName(charTypeName); // 根据 罪名分类名称 获得罪名分类
-			int chargeTypeId = chargeType.getId(); // 获得这个罪名分类的id
-			List<String> chargeNames = chargeMapper.listChargeNameByChargeTypeId(chargeTypeId); // 获得这个罪名分类下的所有罪名
-			bean.setChargeNames(chargeNames); // 设置这个罪名分类下的所有罪名
+			/*-----------为 charTypeName 赋值-----------*/
+			bean.setCharTypeName(foo);
+			/*-----------------------------------------*/
 
-			// 获得这些罪名名称对应案例
-			List<Case> cases = new ArrayList<>();
-			for (String foo : chargeNames)
+			/*-----------为 chargeNamesAndCases 赋值----------- */
+			List<String> allChangeNameInThisType = chargeMapper.listAllChargeNameByChargeTypeName(foo); // 获得这个罪名分类下的所有罪名的名称: 民事罪  抢劫
+
+			List<ChangeNameAndCases> chargeNamesAndCases = new ArrayList<>(); // 内部list
+
+			for(String charName : allChangeNameInThisType) // 遍历 这个罪名分类下的 所有罪名
 			{
-				cases.addAll(caseMapper.getOneCaseChargeName(foo));
+				ChangeNameAndCases temp = new ChangeNameAndCases();
+				temp.setChargeName(charName);
+				List<Case> cases = caseMapper.getAllCaseByChargeName(charName); // 这个罪名下的所有案例
+				temp.setCases(cases);
+
+				chargeNamesAndCases.add(temp);
 			}
-			bean.setCases(cases); // 设置所有的案例
+			bean.setChargeNamesAndCases(chargeNamesAndCases);
+			/*-------------------------------------------------*/
 
 			data.add(bean);
 		}
