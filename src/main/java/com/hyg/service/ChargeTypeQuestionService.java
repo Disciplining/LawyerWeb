@@ -53,4 +53,26 @@ public class ChargeTypeQuestionService
 
 		return data;
 	}
+
+	/**
+	 * 根据id获得一条数据
+	 * @param id
+	 * @return
+	 */
+	public ChargeTypeQuestion getOneQuestionById(int id)
+	{
+		ChargeTypeQuestion question;
+
+		try
+		{
+			question = mapper.getOneQuestionById(id);
+		}
+		catch (Exception e)
+		{
+			System.out.println("出现异常：" + e.getMessage());
+			return null;
+		}
+
+		return new ChargeTypeQuestionExtend(question, typeMapper.getOneChargetypenameById(question.getChargeTypeId()));
+	}
 }
