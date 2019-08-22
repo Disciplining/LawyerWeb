@@ -4,8 +4,8 @@ package com.hyg.service;
 import com.hyg.mapper.CaseMapper;
 import com.hyg.mapper.ChargeMapper;
 import com.hyg.mapper.ChargeTypeMapper;
+import com.hyg.mapper.ChargeTypeQuestionMapper;
 import com.hyg.pojo.Case;
-import com.hyg.pojo.ChargeType;
 import com.hyg.util.ChangeNameAndCases;
 import com.hyg.util.LinkageCaseDataBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("commonService")
 public class CommonService
@@ -29,6 +31,10 @@ public class CommonService
 	@Autowired
 	@Qualifier("caseMapper")
 	private CaseMapper caseMapper;
+
+	@Autowired
+	@Qualifier("chargeTypeQuestionMapper")
+	private ChargeTypeQuestionMapper questionMapper;
 
 	/**
 	 * 获得 网站下方 展示案例的联动数据
@@ -70,5 +76,20 @@ public class CommonService
 		}
 
 		return data;
+	}
+
+	/**
+	 * 获得刑事辨护模块下的数据
+	 * 包括：这个罪名分类下的罪名实体  这个罪名分类下的问答实体
+	 * @param chargeTypeName 毒品类犯罪辩护、公司企业人员犯罪预防与辩护、时下热点罪名辩护
+	 * @return
+	 */
+	public Map<String,Object> getCriminalDefenseData(String chargeTypeName)
+	{
+		Map<String, Object> map = new HashMap<>(2);
+		map.put("charges", chargeMapper.listChargeByChargeTypeName(chargeTypeName));
+		map.put("questions", questionMapper.listAllQuestionInOneType(chargeTypeName));
+
+		return map;
 	}
 }

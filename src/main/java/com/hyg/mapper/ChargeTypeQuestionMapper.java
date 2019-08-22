@@ -32,7 +32,7 @@ public interface ChargeTypeQuestionMapper
 
 	/**
 	 * 输入：某个罪名分类的名称
-	 * 获得：这个罪名分类下的所有问答数据
+	 * 获得：这个罪名分类下的所有问答实体
 	 * @param chargeTypeName
 	 * @return
 	 */
