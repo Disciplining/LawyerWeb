@@ -16,8 +16,7 @@ spring:
 
 cbs:
     imagesPath: file:/media/root/my-disk/download/pic-dir/ # 图片存储总目录
-    #    imagesPath: file:D:/121res/ # 图片存储总目录
-    projectPath: http://127.0.0.1
+#    imagesPath: file:D:/121res/ # 图片存储总目录
 
 mybatis:
     configuration:
