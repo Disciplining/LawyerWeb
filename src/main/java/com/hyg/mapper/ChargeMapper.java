@@ -44,5 +44,14 @@ public interface ChargeMapper
 				" where `t_charge`.`chargeTypeId`=" +
 				" (select `t_chargeType`.`id` from `t_chargeType` where `t_chargeType`.chargeTypeName=#{name}); ")
 	List<Charge> listChargeByChargeTypeName(String name);
+
+	/**
+	 * 输入：罪名实体的id
+	 * 输出：这个id对应的罪名实体
+	 * @param id
+	 * @return
+	 */
+	@Select(" select * from `t_charge` where `id`=#{id} ")
+	Charge getOneChargeById(int id);
 	//--------------------------------------------------------------------------------------------------------------------
 }
