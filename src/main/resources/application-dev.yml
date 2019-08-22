@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 80
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,7 +8,7 @@ spring:
     password: root123
     type: com.alibaba.druid.pool.DruidDataSource
   thymeleaf:
-    prefix: classpath:/templates/views/
+    prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
     encoding: UTF-8
@@ -17,7 +17,7 @@ spring:
 cbs:
     imagesPath: file:/media/root/my-disk/download/pic-dir/ # 图片存储总目录
 #    imagesPath: file:D:/121res/ # 图片存储总目录
-    projectPath: http://localhost:8081
+#    projectPath: http://127.0.0.1
 
 mybatis:
     configuration:
