@@ -67,6 +67,8 @@ public class ArticleService
 		PageHelper.startPage(pageNum, pageSize);
 		List<Article> articles = articleMapper.findCompanyLawArticle();
 
+		Util.richTextAddHostAll(articles);
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("code", 0);
 		map.put("count", list.size());
@@ -89,6 +91,8 @@ public class ArticleService
 		PageHelper.startPage(pageNum, pageSize);
 		List<Article> articles = articleMapper.findLabourLawArticle();
 
+		Util.richTextAddHostAll(articles);
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("code", 0);
 		map.put("count", list.size());
@@ -110,6 +114,8 @@ public class ArticleService
 
 		PageHelper.startPage(pageNum, pageSize);
 		List<Article> articles = articleMapper.findCriminalLawArticle();
+
+		Util.richTextAddHostAll(articles);
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("code", 0);
@@ -152,7 +158,10 @@ public class ArticleService
 		Map<String, Object> map = new HashMap<>(2);
 
 		map.put("idArr", articleMapper.listCompanyArticleId());
-		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		Article article = articleMapper.getOneArticleById(id);
+		article.setContent(Util.richTextAddHost(article.getContent()));
+		map.put("articleDetail", article);
 
 		return map;
 	}
@@ -168,7 +177,10 @@ public class ArticleService
 		Map<String, Object> map = new HashMap<>(2);
 
 		map.put("idArr", articleMapper.listLabourArticleId());
-		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		Article article = articleMapper.getOneArticleById(id);
+		article.setContent(Util.richTextAddHost(article.getContent()));
+		map.put("articleDetail", article);
 
 		return map;
 	}
@@ -184,7 +196,10 @@ public class ArticleService
 		Map<String, Object> map = new HashMap<>(2);
 
 		map.put("idArr", articleMapper.listLCriminalArticleId());
-		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		Article article = articleMapper.getOneArticleById(id);
+		article.setContent(Util.richTextAddHost(article.getContent()));
+		map.put("articleDetail", article);
 
 		return map;
 	}
