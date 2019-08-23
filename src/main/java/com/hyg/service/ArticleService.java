@@ -43,6 +43,8 @@ public class ArticleService
 		PageHelper.startPage(pageNum, pageSize);
 		List<Article> articles = articleMapper.findAllArticle();
 
+		Util.richTextAddHostAll(articles);
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("code", 0);
 		map.put("count", list.size());
