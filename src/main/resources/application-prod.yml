@@ -1,0 +1,18 @@
+server:
+    port: 80
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://www.liyanxing.top:3306/lawyer?serverTimezone=Asia/Shanghai
+        username: root
+        password: root123
+        type: com.alibaba.druid.pool.DruidDataSource
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
+        cache: false
+
+cbs:
+    imagesPath: file:/my-dir/download/lawyer-pic-upload/ # 图片存储总目录 linux环境
