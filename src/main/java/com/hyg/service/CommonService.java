@@ -8,6 +8,7 @@ import com.hyg.mapper.ChargeTypeQuestionMapper;
 import com.hyg.pojo.Case;
 import com.hyg.util.ChangeNameAndCases;
 import com.hyg.util.LinkageCaseDataBean;
+import com.hyg.util.NetUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,10 @@ public class CommonService
 				ChangeNameAndCases temp = new ChangeNameAndCases();
 				temp.setChargeName(charName);
 				List<Case> cases = caseMapper.getAllCaseByChargeName(charName); // 这个罪名下的所有案例
+				for(Case onCase : cases)
+				{
+					onCase.setPicUrl(NetUtil.getPcHost().append(onCase.getPicUrl()).toString()); // 拼接主机地址
+				}
 				temp.setCases(cases);
 
 				System.out.println("debug：" + cases);

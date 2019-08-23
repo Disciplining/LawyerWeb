@@ -2,6 +2,7 @@ package com.hyg.service;
 
 import com.hyg.mapper.CaseMapper;
 import com.hyg.pojo.Case;
+import com.hyg.util.NetUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class CaseService
 	 */
 	public Case getOneCaseById(int id)
 	{
-		return mapper.getOneCaseById(id);
+		Case oneCase = mapper.getOneCaseById(id);
+
+		oneCase.setPicUrl(NetUtil.getPcHost().append(oneCase.getPicUrl()).toString());
+
+		return oneCase;
 	}
 }

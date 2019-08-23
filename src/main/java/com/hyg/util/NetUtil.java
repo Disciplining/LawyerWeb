@@ -21,6 +21,17 @@ public class NetUtil
 	private static final String host = getAllIpAddr().get(0);
 
 	/**
+	 * 获得主机地址
+	 * http://xxxx:xx
+	 * 最后没有 "/"
+	 * @return
+	 */
+	public static StringBuffer getPcHost()
+	{
+		return new StringBuffer("http://" + host + ":" + port);
+	}
+
+	/**
 	 * 获得主机上所有网卡的IP
 	 * 包括虚拟网卡
 	 * @return
@@ -67,16 +78,5 @@ public class NetUtil
 	public void setPort(String port)
 	{
 		NetUtil.port = port;
-	}
-
-	/**
-	 * 获得主机地址
-	 * http://xxxx:xx
-	 * 最后没有 "/"
-	 * @return
-	 */
-	public static StringBuffer getPcHost()
-	{
-		return new StringBuffer("http://" + host + ":" + port);
 	}
 }

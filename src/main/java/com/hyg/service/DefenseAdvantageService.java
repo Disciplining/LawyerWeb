@@ -2,6 +2,7 @@ package com.hyg.service;
 
 import com.hyg.mapper.DefenseAdvantageMapper;
 import com.hyg.pojo.DefenseAdvantage;
+import com.hyg.util.NetUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,15 @@ public class DefenseAdvantageService
      */
     public List<DefenseAdvantage> listAllData()
     {
-        return mapper.listAllData();
+    	List<DefenseAdvantage> list = mapper.listAllData();
+
+    	// 拼接主机地址
+    	for (DefenseAdvantage foo : list)
+		{
+			foo.setIcon(NetUtil.getPcHost().append(foo.getIcon()).toString());
+		}
+
+        return list;
     }
 
 	/**
