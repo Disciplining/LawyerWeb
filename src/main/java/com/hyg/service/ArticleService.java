@@ -130,7 +130,11 @@ public class ArticleService
 		Map<String, Object> map = new HashMap<>(2);
 
 		map.put("idArr", articleMapper.listAllArticleId());
-		map.put("articleDetail", articleMapper.getOneArticleById(id));
+
+		Article article = articleMapper.getOneArticleById(id);
+		article.setContent(Util.richTextAddHost(article.getContent()));
+
+		map.put("articleDetail", article);
 
 		return map;
 	}
