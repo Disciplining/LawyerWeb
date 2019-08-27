@@ -15,8 +15,8 @@
 	</parent>
 
 	<groupId>com.hyg</groupId>
-	<artifactId>lawyerweb</artifactId>
-	<version>0.0.3.RELEASE</version>
+	<artifactId>LawyerWeb</artifactId>
+	<version>0.0.3</version>
 	<name>LawyerWeb</name>
 	<description>Lawyer Web project</description>
 
